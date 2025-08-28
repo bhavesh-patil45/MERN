@@ -106,25 +106,34 @@ console.log("Array after deletion of first element", arr3);
 /* HOMEWORK */
 /* Q: Write a function to Rotate array right (clockwise) by k element */
 Arrays = [1, 2, 3, 4, 5]
+k = 2
 function clockWise() {
     let temp = Arrays[Arrays.length - 1]
     for (let i = Arrays.length - 1; i > 0; i--) {
         Arrays[i] = Arrays[i - 1]
     }
-    arr[0] = temp
-    console.log(Arrays)
-}
-clockWise(Arrays)
+    Arrays[0] = temp
 
+}
+while (k > 0) {
+    clockWise(Arrays)
+    k--
+}
+console.log(Arrays)
 
 /* Q: Write a function to Rotate array left (anti - clockwise) by k element */
 arrY = [10, 20, 30, 40, 50]
+k = 3
 function anticlock(arrY) {
     let temp = arrY[0]
     for (let i = 0; i < arrY.length; i++) {
         arrY[i] = arrY[i + 1]
     }
     arrY[arrY.length - 1] = temp
-    console.log(arrY)
+
 }
-anticlock(arrY)
+while (k > 0) {
+    anticlock(arrY)
+    k--
+}
+console.log(arrY)
