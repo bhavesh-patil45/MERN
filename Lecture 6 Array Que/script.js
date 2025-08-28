@@ -136,4 +136,4 @@ while (k > 0) {
     anticlock(arrY)
     k--
 }
-console.log(arrY)
+console.log(arrY) 
