@@ -71,3 +71,21 @@ console.log(str);
 console.log(str.substring(3, 9))// start from 3 to end 9-1
 console.log(str.substring(3))
 console.log(str.substring("3"))
+console.log(str.substring(-3, -100))
+console.log(str.substring(-3, 1000))
+
+//slice() -> almost same as substring
+console.log(str.slice(3))
+console.log(str.slice(3, 5))
+console.log(str.slice(-3))
+console.log(str.slice())
+console.log(str.slice(-100))
+console.log(str.slice(-3, -9))
+
+//split() -> split the string based on given chracter
+
+console.log(str.split(","))
+
+
+
+
