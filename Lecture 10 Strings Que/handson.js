@@ -1,6 +1,3 @@
-// Q-> write A fuction
-//1 convert this variable name to camal case
-//2 convert this variable name to snake case
 let str = "student first name"
 function camalCase(str) {
     let ans = ""
@@ -49,16 +46,16 @@ palinDrome(str)
 
 // Q 4 => find the length of word
 
-const str = "madam"
-function palinDrome(str) {
+const str = "bhavesh  patil"
+function wordLength(str) {
     let count = 0
-    str.trim()
+    str.trim()``
     for (let i = 0; i < str.length; i++) {
         count++
     }
     console.log(count)
 }
-palinDrome(str)
+wordLength(str)
 
 // Q 5 => find the longest word
 const str = "now we learn programming"
@@ -77,15 +74,5 @@ function longWorld(str) {
 }
 longWorld(str)
 
-// Q 6 find first non repating char
+//------H/W------
 
-const str1 = "abcahbcded"
-function nonRepating(str1) {
-    //    str1= str1.split("")   
-    for (let char of str1) {
-        if (str1.indexOf(char) === str1.lastIndexOf(char))
-            return char
-
-    }
-}
-console.log(nonRepating(str1))
