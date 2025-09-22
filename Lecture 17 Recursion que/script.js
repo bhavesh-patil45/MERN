@@ -24,7 +24,7 @@ console.log(parenthesis("((()(())()))"))
 
 // parenthesis by recursion
 
-/* time complexity = O(2^N)
+/* time complexity = O(2!)
 */
 let parenthesis = []
 function validParenthesis(n, str = "", ind = 0, open = 0, close = 0) {
