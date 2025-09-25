@@ -125,15 +125,164 @@ console.log(mergeSort1(arr1, 0, arr1.length - 1))
 // S.C. -> O(N) [extra space for merging]
 // Stable sorting -> YES [equal elements maintain their relative order]
 // Not in place sorting -> NO [requires extra space for merging]
+// Used in external sorting (large data that doesn't fit in memory)
 
 
 // Insertion sort
-let arra = [1, 4, 5]
-let n = 3
 
-for (let i = 0; i < arra.length; i++) {
-    if (n > arr[i]) {
-        arra.push(n)
-        arra.sort()
+function insertInSortedArray(arr) {
+    let n = arr.length
+    let lastElement = arr[n - 1]
+    for (let i = n - 2; i >= 0; i--) {
+        if (arr[i] > lastElement) {
+            arr[i + 1] = arr[i]
+        } else {
+            arr[i + 1] = lastElement
+        }
     }
+    return arr
 }
+let arr = [1, 2, 7, 9, 6];
+console.log(insertInSortedArray(arr))
+
+//***************************************************************************** */
+function insertionSort(arr) {
+    let ind = 0
+    for (let i = 1; i < arr.length; i++) {
+        let firstElementofSortedPart = arr[i];
+        let indexToInsert = 0
+        for (let j = ind; j >= 0; j--) {
+            if (arr[j] > firstElementofSortedPart) {
+                arr[j + 1] = arr[j]
+            } else {
+                indexToInsert = j + 1
+                break;
+            }
+        }
+        arr[indexToInsert] = firstElementofSortedPart
+        ind++
+    }
+    return arr
+}
+arr = [4, 6, 9, 5, 4, 1, 2]
+console.log("sorted array using insertion sort:", insertInSortedArray(arr).join(" "));
+
+//summary ->
+// IN ONE PASS -> take first element of unsorted part and insert it in sorted part at correct position
+// AFTER first pass the first two elements will be sorted
+// after each pass one element will be placed in its correct sorted position
+// Optimization: no major optimization like bubble sort, always takes O(N^2)
+
+
+//Quick Sort
+/* 
+given an array, place its last element at a position
+such that all smaller elements are in left and all greater element are in right
+
+input = [2,1,7,5,4]
+output = [1,2,4,7,5]
+*/
+
+let arr = [2, 7, 1, 5, 4]
+function quickSort(arr) {
+    let element = arr[arr.length - 1]
+    let a = 0
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] <= element) {
+            //console.log(arr[i])
+            [arr[a], arr[i]] = [arr[i], arr[a]]
+            a++
+        }
+    }
+    return arr;
+}
+console.log(quickSort(arr))
+
+function partition(arr, low, high) {
+    let pivot = arr[high];
+    let i = low - 1;
+    for (let j = low; j < high; j++) {
+        if (arr[j] < pivot) {
+            i++;
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+    }
+    [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];
+    return i + 1;
+}
+arr = [3, 1, 6, 2, 8, 7, 4]
+// place the pivot element at its correct position
+let pivotIndex = partition(arr, 0, arr.length - 1);
+console.log("Pivot element is at index:", pivotIndex);
+console.log("Array after partitioning around pivot:", arr);
+
+function quickSortRecursive(arr, low, high) {
+    if (low < high) {
+        let pivotIndex = partition(arr, low, high);
+        quickSortRecursive(arr, low, pivotIndex - 1);
+        quickSortRecursive(arr, pivotIndex + 1, high);
+    }
+    return arr;
+}
+
+/* sort() method in JS */
+
+arr = [3, 1, 6, 2, 8, 7, 4];
+// arr.sort(); //sorts in ascending order
+// arr.sort().reverse(); // sorts in descending order
+
+//also sorts in ascending order
+arr.sort((a, b) => a - b);
+// console.log({ arr });
+
+//also sorts in descending order
+arr.sort((a, b) => b - a);
+console.log({ arr });
+
+arr = ["apple", "watermelon", "kiwi"];
+arr.sort();
+console.log(arr);
+
+//H.W. explore localeCompare() method for strings comparison
+
+let students = [
+    { name: "Kiran", age: 20, rollNum: 10 },
+    {
+        name: "Ramesh",
+        age: 20,
+        rollNum: 7,
+    },
+    { name: "Suresh", age: 24, rollNum: 12 },
+];
+
+students.sort((a, b) => {
+    if (a.age == b.age) return b.rollNum - a.rollNum;
+    return a.age - b.age;
+});
+console.log(students);
+
+const nestedArr = [
+    [1, 3],
+    [2, 1],
+    [1, 2],
+    [2, 4],
+];
+
+nestedArr.sort((a, b) =>
+    a[0] - b[0]);
+console.log({ nestedArr });
+
+/* H.w: sort the above array according to first value and then according to second value 
+output should be: 
+[
+  [1, 2],
+  [1, 3],
+  [2, 1],
+  [2, 4],
+]
+  nestedArr.sort((a, b) =>{
+    if(a[0] == b[0]) return a[1] - b[1]
+    return a[0] - b[0];
+});
+console.log({ nestedArr });
+*/
