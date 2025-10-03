@@ -1,4 +1,7 @@
 /* Practice Question */
+
+const { use } = require("react");
+
 /* Cricket Team */
 const team = {
     name: "Indian Cricket Team",
@@ -170,10 +173,11 @@ let nums = [2, 4, 56, 852, 46, 76];
 const oddNumber = nums.filter((value, index, array) => value % 2);
 console.log({ oddNumber: oddNumber });
 
-let name = ['Pranjal', 'Bhavesh', 'uday', 'siddharth', 'neha']
+let name1 = ['Pranjal', 'Bhavesh', 'uday', 'siddharth', 'nehal']
 // filter remove names less than 5 char
 
-let ans = name.filter((value) => {
+let ans = name1.filter((value) => {
     value.length >= 5
 })
 console.log(ans);
+
