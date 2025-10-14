@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+</head>
+
+<body>
+    <section style="background-color: rgb(220, 226, 230); text-align: center;padding: auto;padding-bottom: 5%;">
+        <form action="">
+            <div>
+                <label for="name">Name</label>
+                <input id="name" type="text" placeholder="enter Your full name" name="name" required>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="enter email" name="email">
+            </div>
+            <div>
+                <label for="Phone">Phone</label>
+                <input type="number" id="number" placeholder="Enter a mobile no." name="phone">
+            </div>
+            <div>
+                <label for="birth">Date of Birth</label>
+                <input type="date" name="birth" id="birth" placeholder="Enter your birth date"><br>
+
+            </div>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="Enter your password">
+            <div>
+                <label for="">Graduation Year</label>
+                <select name="Graduation Year" id="Grad-year">
+                    <option value="2024">2024</option>
+                    <option value="">2025</option>
+                    <option value="">2026</option>
+                </select>
+            </div>
+            <div>
+                <label for="cities">Cities</label>
+                <select name="cities" id="city">
+                    <option value="">Select a City</option>
+                    <option value="">Pune</option>
+                    <option value="">Mumbai</option>
+                    <option value="">Nagpur</option>
+                </select>
+            </div> <br>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+    <div>
+        <h2>List of Fruits</h2>
+        <p id="mango" data-product-id="abc1" data-price="10">
+            Mango - <span>10</span>
+        </p>
+        <p id="apple">Apple - <span>40</span></p>
+        <p id="banana">Banana - <span>30</span></p>
+    </div>
+    <script>
+        let mango = document.getElementById("mango");
+        console.log(mango.dataset.productId);
+        mango.dataset.color = "pink";
+        console.log(mango.dataset.color);
+        console.log(mango.dataset.price);
+
+    </script>
+</body>
+
+</html>

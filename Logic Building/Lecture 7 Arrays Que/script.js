@@ -188,3 +188,13 @@ function allSubarraysOfSizeK(arr, k) {
 //SC -> O(1)
 
 console.log(allSubarraysOfSizeK(arr2, 3));
+
+// remove duplicate
+let arr = [1, 2, 3, 4, 5, 3, 2, 1]
+let ans = []
+for (let i = 0; i < arr.length; i++) {
+    if (!ans.includes(arr[i])) {
+        ans.push(arr[i])
+    }
+}
+console.log(arr);
