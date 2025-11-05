@@ -6,7 +6,7 @@
 
 .container {
     display: grid;
-    grid-template-rows: 1.5fr 10fr 4fr;
+    grid-template-rows: 1fr 10fr 4fr;
     height: 100vh;
 
 }
@@ -15,8 +15,16 @@
     background-color: aqua;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    /* align-items: center; */
     padding: 15px;
+}
+
+@media screen and (width:550px) {
+
+    .header nav {
+        display: flex;
+        flex-direction: row;
+    }
 }
 
 .nav a {
@@ -32,14 +40,22 @@
 
 .content {
     display: flex;
+    justify-content: center;
     align-items: center;
     background-color: rgb(160, 171, 182);
     border: 1px solid black;
     border-radius: 10px;
-    margin: 20px;
-    padding: 10px;
-    margin: 60px auto;
+    margin: 40px auto;
+    padding: 50px;
+    width: 80%;
+    gap: 20px;
+
+}
+
+.rightBox {
     
+    align-items: center;
+    margin: 10px auto;
 }
 
 .photo {
@@ -65,9 +81,37 @@
     justify-content: space-around;
     padding: 10px;
     color: white;
-    align-items: center;
+    /* align-items: center; */
+    gap: 20px;
 }
 
 ul {
     list-style-type: none;
+}
+
+@media screen and (max-width:550px) {
+    .header {
+        flex-direction: column;
+        text-align: left;
+    }
+}
+
+@media screen and (max-width:560px) {
+    .box {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width:560px) {
+    .footer {
+        flex-direction: column;
+        text-align: left;
+    }
+}
+
+@media screen and (max-width:560px) {
+    .content {
+        flex-direction: column;
+    }
 }

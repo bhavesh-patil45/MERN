@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+div>div {
+    width: 400px;
+    height: 400px;
+    background-color: rgb(78, 88, 88);
+    margin: 100px auto;
+}
+
+div div:first-child {
+    background-color: brown;
+}
+
+.child:active {
+    background-color: antiquewhite;
+}
+
+.child:hover {
+    background-color: blue;
+}
+
+.element p::before {
+    content: "Bhavesh";
+}
+
+.element p::first-letter {
+    content: "";
+    color: blue;
+}
+
+.element p::first-line {
+    content: "";
+    color: rgb(71, 71, 90);
+}

@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+div {
+    text-align: center;
+}
+
+div>div {
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+    background-color: bisque;
+}
+
+.linear div:nth-of-type(1) {
+    background: linear-gradient(red, white);
+}
+
+.linear div:nth-of-type(2) {
+    background: linear-gradient(to right, red, blue);
+    transition: 50%;
+}
+
+.linear div:last-of-type {
+    background: linear-gradient(130deg, red, rgb(32, 32, 4), rgb(139, 117, 117));
+}
+
+.radial div:nth-of-type(1) {
+    background: radial-gradient(rgb(89, 89, 142),black, white);
+}
+
+.radial div:nth-of-type(2) {
+    background: radial-gradient(black, white, black, white, black , white,black, white, black , white,black);
+}
+
+.radial div:last-of-type {
+    background: radial-gradient(pink, white, black);
+}
+
+.conic div:nth-of-type(1) {
+    background: conic-gradient(white, rgb(170, 85, 85), pink, rgb(201, 201, 129), rgb(155, 111, 111));
+}
+
+.conic div:nth-of-type(2) {
+    background: conic-gradient(white, rgb(170, 85, 85), rgb(112, 89, 92), rgb(161, 161, 89), rgb(244, 240, 240));
+}
+
+.conic div:last-of-type {
+    background: conic-gradient(white, rgb(170, 85, 85), pink, rgb(201, 201, 129), rgb(155, 111, 111));
+}
