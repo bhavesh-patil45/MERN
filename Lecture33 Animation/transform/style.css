@@ -1,0 +1,45 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    /* padding: 100px; */
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.container .box {
+    display: flex;
+    width: 400px;
+    height: 400px;
+    margin-bottom: 50px;
+    background-color: aquamarine;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.5rem;
+    border: solid black;
+    /* border-style: dotted; */
+    box-shadow: 20px 20px 20px black;
+    border-width: 5px 5px;
+    gap: 20px;
+
+}
+
+body:hover .box {
+    transition: ease-in-out;
+    transition-duration: 2s;
+    transition-delay: 1s;
+    transform: rotate(45deg);
+    transform: rotate(-45deg);
+    transform: rotate(0.5turn);
+
+    transform: skew(20deg, 25deg);
+    /* transform: skew(-30deg); */
+
+}

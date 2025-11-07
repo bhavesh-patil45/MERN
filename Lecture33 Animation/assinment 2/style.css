@@ -1,0 +1,67 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 100vh;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+body {
+    background-image: url(image2.png);
+    background-size: cover;
+}
+
+.ball {
+    border-radius: 50px;
+    height: 100px;
+    width: 100px;
+    background-color: rgb(36, 50, 50);
+}
+
+.ball {
+    background: linear-gradient(white, yellow, red);
+    animation-name: bounce;
+    animation-duration: 3s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes bounce {
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(220px);
+    }
+}
+
+.b1 {
+    animation-delay: 2s;
+}
+
+.b2 {
+    animation-delay: 3s;
+}
+
+.b3 {
+    animation-delay: 4s;
+}
+
+.b4 {
+    animation-delay: 5s;
+}
+
+.b5 {
+    animation-delay: 6s;
+}

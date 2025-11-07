@@ -1,0 +1,30 @@
+ *,
+ *::after,
+ *::before {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ .container {
+     padding: 100px;
+ }
+
+ .container .box {
+     width: 400px;
+     height: 400px;
+     margin-bottom: 50px;
+     background-color: bisque;
+ }
+
+ .box:hover {
+     width: 500px;
+     background-color: aquamarine;
+ }
+
+ .transition {
+     transition-property: width;
+     transition-duration: 2s;
+     transition-delay: 1s;
+     transition-timing-function: ease-in-out;
+ }
