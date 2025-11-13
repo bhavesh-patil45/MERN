@@ -1,35 +1,38 @@
-// // creating an element
-// const h3Element = document.createElement("h3")
-// h3Element.textContent = "Hi, im a h3 eklement"
+//creating an element
+const h3Element = document.createElement("h3");
 
-// const div1 = document.querySelector("div");
-// div1.appendChild(h3Element);
+h3Element.textContent = "Hi, I'm a H3 element";
 
+const div1 = document.querySelector("div");
+div1.appendChild(h3Element);
 
-// const h3Element1 = document.querySelector("h3")
+const h3Element1 = document.querySelector("h3");
 
-// //event in DOM
-// //click event
-
-// const para1 = document.querySelector("p");
-// para1.addEventListener("click", (event) => {
-//     // console.log("You have clicked");
-//     para1clicked(event)
-// })
-
-// function para1clicked(event) {
-//     h3Element1.remove()
-//     console.log("you have click", event.type);
-// }
-
-let h3ele = document.querySelector("h3");
-
-h3ele.addEventListener("mousedown", (event) => {
-    h3ele.style.backgroundColor = "yellow";
+//Events in DOM
+const para1 = document.querySelector("p");
+para1.addEventListener("click", (event) => {
+  para1Clicked(event);
 });
 
-h3ele.addEventListener("mouseup", (event) => {
-    h3ele.style.backgroundColor = "";
+function para1Clicked(event) {
+  h3Element1.remove();
+  console.log("You've clicked a Para", event.type);
+}
+
+const h2Element = document.querySelector("h2");
+h2Element.addEventListener("mouseover", () => {
+  h2Element.style.backgroundColor = "Yellow";
 });
 
+h2Element.addEventListener("mousedown", () => {
+  h2Element.style.backgroundColor = "red";
+});
 
+h2Element.addEventListener("mouseup", () => {
+  h2Element.style.backgroundColor = "Yellow";
+});
+
+document.addEventListener("keydown", (event) => {
+  console.log("event type: " + event.key);
+  console.log("event type: " + event.keyCode);
+});
