@@ -7,12 +7,6 @@ addBtn.addEventListener("click", (e) => {
     const todoElement = document.querySelector("#todo");
     const todoValue = todoElement.value.trim();
 
-    // Prevent empty todo
-    if (!todoValue) {
-        alert("Please enter a todo!");
-        return;
-    }
-
     const todoItem = document.createElement("div");
     todoItem.className = "todo-item";
 
@@ -23,7 +17,7 @@ addBtn.addEventListener("click", (e) => {
             <button class="delete-btn">Delete</button>
         </div>
     `;
-
+ 
     todoItemsSection.appendChild(todoItem);
 
     // DELETE BUTTON

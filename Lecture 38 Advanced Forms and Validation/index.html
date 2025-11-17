@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: rgb(76, 102, 151);
+    }
+
+    input {
+        align-items: center;
+        flex-direction: row;
+        align-content: center;
+        padding: 5px;
+        gap: 20px;
+        margin-top: 20px;
+        border-radius: 4px;
+    }
+
+    select {
+        padding: 5px;
+        gap: 20px;
+        margin-top: 20px;
+        border-radius: 4px;
+    }
+
+    button {
+        margin: 10px;
+        background-color: blueviolet;
+        color: white;
+        border-radius: 5px;
+        border: none;
+        height: 25px;
+    }
+</style>
+
+<body>
+    <input type="password">
+    <br>
+    <input type="date">
+    <br>
+    <input type="time">
+    <br>
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <br>
+    <input name="mcq" type="radio" value="optionA">
+    <input name="mcq" type="radio" value="optionB">
+    <input name="mcq" type="radio" value="optionC">
+    <input name="mcq" type="radio" value="optionD">
+    <br>
+    <input name="mcq2" type="radio" value="optionA">
+    <input name="mcq2" type="radio" value="optionB">
+    <input name="mcq2" type="radio" value="optionC">
+    <input name="mcq2" type="radio" value="optionD">
+    <br>
+    <select name="Select Option">
+        <option value="">Select Option</option>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+        <option>D</option>
+    </select>
+    <br>
+    <select name="Select Option" multiple="true" size="1">
+        <option value="">Multiple Select</option>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+        <option>D</option>
+    </select>
+    <button>Submit</button>
+    <script src="script.js"></script>
+</body>
+
+</html>
