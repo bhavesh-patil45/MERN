@@ -1,0 +1,244 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object And State Management</title>
+</head>
+
+<style>
+    body {
+        background: #f1f1f1;
+        font-family: Arial, sans-serif;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 24px;
+        padding: 40px;
+        max-width: 1000px;
+        margin: auto;
+    }
+
+    .card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+        text-align: center;
+        padding: 24px 12px;
+        transition: box-shadow 0.3s;
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .title {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+
+    .price {
+        color: #888;
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+
+    .card button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .card button:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<body>
+    <div class="gallery">
+        <button>Show all products</button>
+        <!-- <div class="card">
+        <div class="title">Product 1</div>
+        <div class="price">₹24.99</div>
+        <button>Add to Cart</button>
+      </div> -->
+</div>
+
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+</head>
+
+<body>
+    <style>
+        body {
+            margin: 200px;
+        }
+    </style>
+    <div>
+        <h1>Counter</h1>
+        <div class="counter">
+            <p>0</p>
+            <span>Level: 0</span>
+            <button id="increase">Increase</button>
+            <button id="decrease">Decrease</button>
+        </div>
+        <br />
+        <hr />
+        <br />
+        <span>Select your theme</span>
+        <button id="dark">Dark</button>
+        <button id="light">Light</button>
+
+
+        <button id="add-count">AddCount</button>
+    </div>
+    <script>
+        const state = {
+            theme: "dark",
+            level: 0,
+        };
+
+
+        /*
+   
+   
+        level 1 -> count from 1 - 5
+        level 2 -> count from 6 - 10
+        level 3 -> count from 11 - 15
+        and so on....
+   
+   
+        */
+        const counter = {
+            count: 0,
+            level: 0,
+
+
+            elements: {
+                increase: document.querySelector("#increase"),
+                decrease: document.querySelector("#decrease"),
+                showCount: document.querySelector("p"),
+                showLevel: document.querySelector("div > span"),
+                darkThemeBtn: document.querySelector("#dark"),
+                lightThemeBtn: document.querySelector("#light"),
+            },
+
+
+            updateLevel(newCount) {
+                if (newCount > 10) {
+                    this.level = 3;
+                } else if (newCount > 5) {
+                    this.level = 2;
+                } else if (newCount > 0) {
+                    this.level = 1;
+                } else {
+                    this.level = 0;
+                }
+                this.elements.showLevel.textContent = "Level: " + this.level;
+                state.level = this.level;
+            },
+
+
+            updateCount(newCount) {
+                this.elements.showCount.textContent = newCount;
+                this.updateLevel(newCount);
+            },
+
+
+            events() {
+                this.elements.increase.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    this.count++;
+                    this.updateCount(this.count);
+                });
+
+
+                this.elements.decrease.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    this.count--;
+                    this.updateCount(this.count);
+                });
+
+
+                this.elements.darkThemeBtn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    document.body.style.backgroundColor = "black";
+                    document.body.style.color = "white";
+                    state.theme = "dark";
+                });
+
+
+                this.elements.lightThemeBtn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    document.body.style.backgroundColor = "white";
+                    document.body.style.color = "black";
+                    state.theme = "light";
+                });
+            },
+        };
+
+
+        counter.events();
+
+
+        //   let count = 0;
+        //   const increase = document.querySelector("#increase");
+        //   const decrease = document.querySelector("#decrease");
+        //   const showCount = document.querySelector("p");
+
+
+        //   increase.addEventListener("click", (e) => {
+        //     e.preventDefault();
+        //     count++;
+        //     showCount.textContent = count;
+        //   });
+
+
+        //   decrease.addEventListener("click", (e) => {
+        //     e.preventDefault();
+        //     count--;
+        //     showCount.textContent = count;
+        //   });
+
+
+        const obj = {
+            count: 1,
+            addCount() {
+                this.count++;
+                console.log("this", this);
+            },
+        };
+
+
+        obj.addCount(); //calling the addCount method -> this is referring to obj
+
+
+        const addBtn = document.querySelector("#add-count");
+
+
+        // passing the reference of addCount method instead of calling -> this is referring to addBtn element and not obj
+        addBtn.addEventListener("click", obj.addCount);
+        //you can handle it by calling it inside another anonymous function like this:
+        addBtn.addEventListener("click", () => {
+            obj.addCount();
+        }); //when function is called like this-> this is still referring to obj and not addBtn
+    </script>
+</body>
+
+</html>
