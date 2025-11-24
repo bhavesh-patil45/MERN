@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* body {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        padding: 120px;
+        gap: 15px;
+    } */
+
+    #count-lable {
+        display: block;
+        text-align: center;
+        font-size: 5rem;
+    }
+
+    .buttons {
+        text-align: center;
+        /* background-color: rgb(125, 66, 180); */
+
+    }
+    button{
+        padding: 10px 20px;
+        font-size: 1.5rem;
+        gap: 10px;
+        color: white;
+        background-color: rgb(182, 106, 254);
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.50s;
+    }
+
+    button:hover {
+        background-color: rgb(53, 83, 254);
+    }
+</style>
+
+<body>
+    <label id="count-lable">0</label>
+    <div class="buttons">
+        <button class="increase-btn">Increse</button>
+        <button class="reset-btn">Reset</button>
+        <button class="decrease-btn">Decrease</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
