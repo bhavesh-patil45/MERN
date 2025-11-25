@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Genrator</title>
+</head>
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        padding: 100px;
+        gap: 30px;
+    }
+
+    button {
+        height: 60px;
+        width: 150px;
+        font-size: 1.5rem;
+        background-color: rgb(178, 95, 255);
+        color: white;
+        border-radius: 5px;
+        transition: backgroundColor;
+        cursor: pointer;
+        transition: background-color 0.50s;
+    }
+
+    button:hover {
+        background-color: rgb(29, 62, 250);
+    }
+</style>
+
+<body>
+    <div class="container">
+        <button class="black">Black</button>
+        <button class="white">White</button>
+        <button class="Random">Random</button>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

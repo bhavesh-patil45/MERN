@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            height: 200px;
+            width: 300px;
+            border: 2px solid black;
+            background-color: aqua;
+            border-radius: 50px;
+        }
+
+        .password {
+            padding: 10px;
+            background-color: black;
+            border: none;
+            border-radius: 60px;
+            text-align: center;
+            color: white;
+        }
+
+        .show {
+            padding: 10px;
+            border-radius: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input type="password" class="password" placeholder="Enter the Password">
+        <button class="show">Show</button>
+    </div>
+
+</body>
+<script>
+    const changeName = document.querySelector(".show");
+    const password = document.querySelector(".password")
+
+    changeName.addEventListener("click", () => {
+        if (password.type === "password") {
+            password.type = "text";
+            changeName.textContent = "Hide"
+        } else {
+            password.type = "password";
+            changeName.textContent = "Show"
+        }
+        //changeName.textContent = changeName.textContent === "Show" ? "Hide" : "Show"
+        // changeName.classList.toggle("active");
+
+        // if (changeName.classList.contains("active")) {
+        //     changeName.textContent = "Hide"
+        // } else {
+        //     changeName.textContent = "Show"
+        // }
+    })
+</script>
+
+</html>
