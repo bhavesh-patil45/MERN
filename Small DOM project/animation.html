@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .container {
+        height: 100vh;
+        width: 100vw;
+        background-color: rgb(203, 203, 182);
+        border: 10px solid black;
+        border-radius: 30px;
+        position: relative;
+    }
+
+    .box {
+        height: 80px;
+        width: 1300px;
+        /* margin: 40px; */
+        margin-top: 50px;
+        background-color: rgb(255, 255, 255);
+        position: absolute;
+        animation-name: right;
+        animation-direction: alternate;
+        animation-duration: 2s;
+
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+
+    @keyframes right {
+        from {
+            top: 0;
+            left: 0;
+        }
+
+        to {
+            top: 0;
+            left: 216px;
+        }
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="box">Hello accioJob</div>
+    </div>
+    <div id="grid-container">
+        <div id="grid-item"></div>
+        <div id="grid-item"></div>
+        <div id="grid-item"></div>
+        <div id="grid-item"></div>
+        <div id="grid-item"></div>
+        <div id="grid-item"></div>
+        <div id="grid-item"></div>
+        <div id="grid-item"></div>
+        <div id="grid-item"></div>
+    </div>
+    <button id="change_button"></button>
+    <button id="Reset"></button>
+
+</body>
+
+</html>

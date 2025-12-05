@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage and Persistence</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        justify-content: space-between;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+</style>
+<body>
+    <!-- browsers strore data in memory but that data is lost when we close the browser
+    In-memory problem can be solved by using web storage API
+    browers give 5 t0 10 MB of storage space per each origin/domain
+    there are two types of web storage
+    1. local storage : its store data in key value pairs (key and value are strings)
+    2. session storage : its store data in key value pairs but data is lost when the tab is closed
+    in domian google.com its like main website 
+    
+    CURD oprations are CRUD : create , read , update , delete
+    -->
+
+
+    <script>
+        let key = "name";
+        let value = "value";
+        let value2 = "bhavesh"
+        localStorage.setItem(key, value);
+        localStorage.setItem(key, value2); //will update the value of the key
+
+        localStorage.setItem("key1", "value1");
+        localStorage.setItem("key2", "value2");
+        localStorage.setItem("key3", "value3");
+        localStorage.setItem("key4", "value4");
+
+        localStorage.removeItem("key")
+        console.log(localStorage.getItem(key));
+        
+        for (let i = 0; i < localStorage.length; i++) {
+            let key = localStorage.key(i); // it will give the key at index i
+            let value = localStorage.getItem(key); // it will give the value of the key
+            console.log(`${key},${value}`);
+        }
+        // first limitation its not store too large data
+        // second limitation its store only string data
+        
+        const str = "a".repeat(1000*25*1000);//QuotaExceededError
+        localStorage.setItem("bigData",str);
+        
+        console.log(localStorage.length); //it give the number of keys in the local storage
+
+        // storage things in local storage accour when we more frequent write operations
+        
+        // its persist/hold brower reopen/refresh/revisit
+        // localStorage.clear(); // clear all the local storage
+        //three method to delete item from local storage
+        //1. removeItem(key)
+        //2. clear() : clear all the local storage
+        //3. setItem(key , null) : set the value to null
+
+        //write a function to check we have local store or not
+        function hasLocal(){
+            
+        }
+    </script>
+</body>
+
+</html>
+
+<!-- whole lecture summary
+     first we learn about browser storage and persistence
+     about storage that have broswer memory but that memory is lost when we close the browser
+        to solve this problem we have web storage api
+        web storage api have two type of storage
+        1. local storage : its store data in key value pairs (key and value are strings)
+        2. session storage : its store data in key value pairs but data is lost when the tab is closed
+
+        then we learn about CRUD operations in local storage
+        CRUD : create , read , update , delete
+        we can create and update data using setItem(key , value)
+        we can read data using getItem(key)
+        we can delete data using removeItem(key)
+        we can also clear all the local storage using clear() method
+
+        then we learn about limitations of local storage
+        1. its not store too large data
+        2. its store only string data
+        then we learn about persistence of local storage
+        local storage persist/hold brower reopen/refresh/revisit
+
+        quataexceeded error occur when we try to store more data than the limit
+     //  -->
+
+      

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width , initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea></textarea>
+
+    <script>
+        function checkLocalStorage() {
+            try {
+                const key = "Key";
+                const value = "value";
+                localStorage.setItem(key, value);
+
+                if (localStorage.getItem(key) === value) return true;
+
+                return false;
+            } catch (error) {
+                return false;
+            }
+        }
+
+        const autosavekey = "autosavekey";
+        const textarea = document.querySelector("textarea")
+
+        textarea.value = localStorage.getItem(autosavekey);
+
+        textarea.addEventListener("input", () => {
+            const newValue = textarea.value;
+            localStorage.setItem(autosavekey, newValue);
+        });
+        // storing non string data in local storage
+        let arr = ["babu", "rov", "aapte"];
+        localStorage.setItem("arr", arr.join(" "))
+        localStorage.getItem("arr").split(" ");
+        console.log(checkLocalStorage());
+
+        //object data
+        const obj = {
+            name: "bhavesh",
+            age: 24,
+            city: "pune"
+        };
+        //stringify and parse are used to convert object to string and string to object
+        const objInString = JSON.stringify(obj);
+        localStorage.setItem("obj", objInString);
+        console.log(JSON.parse(localStorage.getItem("obj")));
+
+
+        //session storage 
+        //in local we store data that show in every tab of the same origin
+        //in session storage we store data that show in only same tab for exaple any form data
+    </script>
+</body>
+
+</html>

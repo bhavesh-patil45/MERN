@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container {
+        gap: 20px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .personal-info {
+        border: 2px solid black;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px black;
+        width: 300px;
+    }
+
+    .academic-info,
+    .experience-info {
+        display: none;
+        border: 2px solid black;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px black;
+        width: 300px;
+    }
+
+    form label {
+        font-size: 1.2rem;
+    }
+
+    form input {
+        width: 250px;
+        padding: 5px;
+        font-size: 1.1rem;
+        border-radius: 6px;
+
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 10px;
+        margin-left: 0;
+        background-color: rgb(157, 82, 228);
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: rgb(157, 22, 157);
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="personal-info" id="personalForm">
+            <h1>Personal Information</h1><br>
+            <form action="">
+                <label for="name">Name:</label>
+                <input type="text" id="username" placeholder="Enter Full Name"><br><br>
+                <label for="mobile">Mobile:</label>
+                <input type="tel" id="mobile" name="mobile" placeholder="+00 0000000000"><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Email"><br><br>
+                <button type="button" id="personalBtn">Submit</button>
+
+
+            </form>
+        </div>
+        <div class="academic-info" id="academicForm">
+            <h1>Academic Information</h1><br>
+            <form action="">
+                <label for="Graduation">Higher Education :</label>
+                <input type="text" name="" id="education" placeholder="eg. BE/B.tech/MCA/M.tech"> <br><br>
+                <label for="college Name">College Name:</label>
+                <input type="text" name="" id="college" placeholder="College Name"> <br><br>
+                <label for="passing Year">Passing Year:</label>
+                <input type="text" name="" id="year" placeholder="Passing Year"> <br><br>
+                <button type="button" id="academicBtn">Submit</button>
+
+            </form>
+        </div>
+        <div class="experience-info" id="experienceForm">
+            <h1>Experience Information</h1><br>
+            <form action="">
+                <label for="company Name">Company Name:</label>
+                <input type="text" name="" id="company" placeholder="Company Name"> <br><br>
+                <label for="role">Role:</label>
+                <input type="text" name="" id="role" placeholder="Your Role"> <br><br>
+                <label for="experience">Experience:</label>
+                <input type="text" name="" id="experience" placeholder="Experience in years"> <br><br>
+                <button type="button" id="experienceBtn">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        const personalForm = document.getElementById("personalForm");
+        const academicForm = document.getElementById("academicForm");
+        const experienceForm = document.getElementById("experienceForm");
+
+        const personalBtn = document.getElementById("personalBtn");
+        const academicBtn = document.getElementById("academicBtn");
+        const experienceBtn = document.getElementById("experienceBtn");
+
+        // -------------------------------
+        // 1. ALWAYS START WITH PERSONAL FORM
+        // -------------------------------
+
+        personalForm.style.display = "block";
+        academicForm.style.display = "none";
+        experienceForm.style.display = "none";
+
+        // -------------------------------
+        // 2. RESTORE SAVED DATA (BUT DO NOT CHANGE STEP)
+        // -------------------------------
+
+        const allInputs = document.querySelectorAll("input");
+
+        allInputs.forEach((input) => {
+            if (input.id && sessionStorage.getItem(input.id)) {
+                input.value = sessionStorage.getItem(input.id);
+            }
+        });
+
+        // -------------------------------
+        // 3. VALIDATION FUNCTION
+        // -------------------------------
+
+        function validateForm(form) {
+            const inputs = form.querySelectorAll("input");
+            let allFilled = true;
+
+            inputs.forEach((input) => {
+                if (input.value.trim() === "") {
+                    allFilled = false;
+                }
+            });
+
+            return allFilled;
+        }
+
+        // -------------------------------
+        // 4. PERSONAL → ACADEMIC
+        // -------------------------------
+
+        personalBtn.addEventListener("click", function () {
+            if (!validateForm(personalForm)) {
+                alert("Please fill all Personal Information!");
+                return;
+            }
+
+            const inputs = personalForm.querySelectorAll("input");
+            inputs.forEach((input) => {
+                sessionStorage.setItem(input.id, input.value);
+            });
+
+            personalForm.style.display = "none";
+            academicForm.style.display = "block";
+        });
+
+        // -------------------------------
+        // 5. ACADEMIC → EXPERIENCE
+        // -------------------------------
+
+        academicBtn.addEventListener("click", function () {
+            if (!validateForm(academicForm)) {
+                alert("Please fill all Academic Information!");
+                return;
+            }
+
+            const inputs = academicForm.querySelectorAll("input");
+            inputs.forEach((input) => {
+                if (input.id) {
+                    sessionStorage.setItem(input.id, input.value);
+                }
+            });
+
+            academicForm.style.display = "none";
+            experienceForm.style.display = "block";
+        });
+
+        // -------------------------------
+        // 6. FINAL SUBMIT
+        // -------------------------------
+
+        experienceBtn.addEventListener("click", function () {
+            if (!validateForm(experienceForm)) {
+                alert("Please fill all Experience Information!");
+                return;
+            }
+
+            const inputs = experienceForm.querySelectorAll("input");
+            inputs.forEach((input) => {
+                if (input.id) {
+                    sessionStorage.setItem(input.id, input.value);
+                }
+            });
+
+            alert("All Forms Submitted Successfully!");
+            sessionStorage.clear();
+        });
+    </script>
+
+</body>
+
+</html>

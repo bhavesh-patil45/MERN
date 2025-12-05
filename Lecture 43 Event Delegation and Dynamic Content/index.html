@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 200px;
+    }
+</style>
+
+<body>
+    <div class="parent">
+        <div class="child"><button>child</button></div>
+    </div>
+    <script>
+        const parent = document.querySelector(".parent");
+        const child = document.querySelector(".child");
+        //their are 3 phases of event propagation
+        //1. capturing phase : event goes down to the element   
+        //2. target phase : event reached the element
+        //3. bubbling phase : event bubbles up from the element
+
+        parent.addEventListener("click", (event) => {
+            console.log("Parent is clicked");
+            //  event.stopPropagation();
+            // summrrty : it stop the further propagation of the event in the bubbling phase
+
+        }, { capture: true });
+
+        child.addEventListener("click", (event) => {
+            console.log("child is clicked");
+            event.stopImmediatePropagation();
+        }, { capture: true });
+
+        child.addEventListener("click", (event) => {
+            console.log("child is clicked twice");
+        }, { capture: true });
+
+
+        parent.addEventListener("click",(event)=>{
+            console.log("target",event.target); // element that trigger the event that is child , will be the deepest child of this parent
+            console.log("Eventtarget" , event.currentTarget); //element that has captured the event i.e.,element on which this 
+        })
+
+        // summary : event.target is the element that triggered the event
+        // event.currentTarget is the element that has captured the event
+
+
+        // there are three methods to explicitly set this keyword: call, apply, and bind 
+        // we use them when we want to set this keyword to a specific object
+
+        function greetMe(greeting){
+            console.log(greeting + " " + this.name);
+        }
+        //if we just print this it will point to the global object(window in browsers)
+        
+        const person = {
+            name : "Bhavesh"
+        }
+
+        greetMe.call (person , "Hello")
+        // it takes arguments separately
+
+        greetMe.apply (person , ["Namaste"])
+        //it takes arguments in the form of array
+
+       const greetPerson = greetMe.bind(person, "bye")
+        // this wiil bind
+
+    </script>
+</body>
+</html>
+
+
+//summary of whole lecture is
+// 1. Event propagation has three phases: capturing, target, and bubbling.
+//capturing phase: event goes down to the element
+//target phase: event reached the element
+//bubbling phase: event bubbles up from the element
+
+// 2. event.stopPropagation() stops further propagation of the event in the bubbling phase. 
+// 3. event.stopImmediatePropagation() stops further propagation of the event and prevents other listeners of the same event from being called.
+// 4. event.target is the element that triggered the event, 
+//while event.currentTarget is the element that has captured the event.
+// 5. The call, apply, and bind methods are used to explicitly set the this keyword in functions to a specific object.
+// call and apply invoke the function immediately,
+// while bind returns a new function with the specified this value and arguments. the this keyword to person object and also set the first argument as "bye"
+       greetPerson(); // now we can call this function later
+
+// 6. In summary, these methods allow for more control over the context in which functions are executed.
+

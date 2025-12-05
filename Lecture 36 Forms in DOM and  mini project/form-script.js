@@ -12,14 +12,14 @@ submitBtn.addEventListener("click", (event) => {
     user.isTncAgreed = document.querySelector("input[type=checkbox]")?.checked;
     user.city = document.querySelector("#city")?.value;
 
-    // if (
-    //     !user.name ||
-    //     !user.mobile ||
-    //     !user.gender ||
-    //     !user.isTncAgreed ||
-    //     !user.city
-    // )
-    //     alert("Please fill out all the fields");
+    if (
+        !user.name ||
+        !user.mobile ||
+        !user.gender ||
+        !user.isTncAgreed ||
+        !user.city
+    )
+        alert("Please fill out all the fields");
     users.push(user);
     form.reset();
     console.log(users);

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        display: flex;
+        padding: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        gap: 3px;
+        background-color: bisque;
+
+    }
+
+    section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .card {
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        border: 1.5px solid black;
+        border-radius: 5px;
+        text-align: center;
+        gap: 5px;
+        background-color: antiquewhite;
+    }
+
+    .img-placeholder {
+        height: 100px;
+        width: 100px;
+        border-radius: 5px;
+    }
+
+    @media (max-width: 600px) {
+        section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+</style>
+
+<body>
+    <main class="container">
+        <section class="cards">
+            <div class="card">
+                <div class="img-placeholder">
+                    <h3>Product Title 1</h3>
+                    <p> Shoet Des of the product.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-placeholder">
+                    <h3>Product Title 2</h3>
+                    <p> Shoet Des of the product.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-placeholder">
+                    <h3>Product Title 3</h3>
+                    <p> Shoet Des of the product.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="img-placeholder">
+                    <h3>Product Title 4</h3>
+                    <p> Shoet Des of the product.</p>
+                </div>
+            </div>
+
+        </section>
+    </main>
+</body>
+
+
+</html>

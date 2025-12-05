@@ -310,6 +310,7 @@ console.log(Bhavesh.dob); //getter called
 Bhavesh.marks = 95; //setter called
 console.log(Bhavesh.marks); //getter called
 
+
 //static methods in class
 class User {
     constructor(username, role) {
@@ -363,3 +364,4 @@ console.log(myAccount.withdraw(4567, 500));
 // they cannot be accessed from outside the class or from subclasses
 // they are useful for encapsulating sensitive data and implementation details
 // they help in maintaining the integrity of the object's state by preventing unauthorized access
+
